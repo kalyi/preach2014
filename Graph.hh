@@ -91,7 +91,8 @@ namespace preach {
     int OrderBackDfs(int, int);
     int OrderDfs(int, int);
   public:
-    int *all_edges;
+    int *fwd_edges;
+    int *bwd_edges;
     int num_nodes;
     int num_edges;
     NodeList nl;
@@ -105,14 +106,13 @@ namespace preach {
     int num_sinks;
     int num_sources;
 
-    int size_bwd;
-    int size_fwd;
-
+    int ch_size_fwd;
+    int ch_size_bwd;
 
     void readGraph(std::istream&);
     void writeGraph(std::ostream&);
     void SetLevels();
-    void MakeEdgeList(uint8_t, EdgeList);
+    void MakeEdgeList(uint8_t, EdgeList, int*);
     void CleanUp();
     Graph();
     ~Graph();
