@@ -10,6 +10,7 @@
 #ifndef PREACH_QUERYGRAPH_HH_
 #define PREACH_QUERYGRAPH_HH_
 #include <valarray>
+#include <vector>
 #include "Fifo.hh"
 
 namespace preach {
@@ -41,7 +42,7 @@ struct Slice {
   const int* tail;
   const int *begin() { return head; }
   const int *end() { return tail; }
-}; 
+};
 
 using EdgeSlices = std::valarray<Slice>;
 using EdgeList = std::valarray<int>;
@@ -64,7 +65,7 @@ class QueryGraph {
   QueryGraph(int n) : nodes(n), ff(n), runs(n) {};
   void setM(int fwd_m, int bwd_m);
   int query(std::vector<Query> &queries);
-}; 
+};
 
 } // ns preach
 #endif // PREACH_QUERYGRAPH_HH_
